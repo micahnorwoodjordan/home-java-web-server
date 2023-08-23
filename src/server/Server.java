@@ -3,14 +3,18 @@ package src.server;
 import java.net.Socket;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.ServerSocket;
+
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
-import java.net.ServerSocket;
+import java.io.File;
+
 import java.nio.charset.StandardCharsets;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -22,6 +26,8 @@ import java.util.concurrent.Executors;
 
 import src.server.http.HttpRequest;
 import src.server.http.HttpResponse;
+import src.server.http.Routes;
+import src.server.helpers.HtmlParser;
 
 
 public class Server {
@@ -94,6 +100,14 @@ public class Server {
 
     public void start() throws IOException {
         handler = new HttpHandler(routes);
+        for (Map.Entry<String, File> entry : Routes.routeTemplateMap.entrySet())
+            addRoute(
+                HttpMethod.GET, entry.getKey(), (req) -> new HttpResponse.Builder()
+                .setStatusCode(200)
+                        .addHeader("Content-Type", "text/html")
+                        .setEntity(HtmlParser.parseHtmlDocument(entry.getValue()))
+                        .build()
+            );
         while (true) {
             Socket clientConnection = socket.accept();
             handleConnection(clientConnection);

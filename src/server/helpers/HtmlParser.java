@@ -1,6 +1,7 @@
 package src.server.helpers;
 
 import java.io.File;
+
 import java.util.Scanner;
 
 public class HtmlParser {
@@ -8,7 +9,7 @@ public class HtmlParser {
         <!DOCTYPE html>
         <html lang=\"en\">
             <body>
-                <p>you are accessing a private resource from my web server</p>
+                <p>you are accessing a private web server resource</p>
             </body>;
         </html>
     """;  // use a few bytes of characters instead of adding congestion to repo and filesystem 

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- inlining styles and scripts because external file references are not functional -->
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Test</title>
+    </head>
+    <body style="background-color: aquamarine;">
+        <div class="verticalCenter" style="display: flex; justify-content: center; align-items: center; text-align: center; min-height: 100vh;">
+            <button id="testButtonGreen" onclick="test(this);" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                green
+            </button>
+            <button id="testButtonNormal" onclick="test(this);" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                aquamarine
+            </button>
+        </div>
+    </body>
+    <script>
+        function test(buttonElement) {
+            let updatedColor = buttonElement.id === "testButtonNormal" ? "aquamarine": "green";
+            let currentColor = document.body.style.backgroundColor;
+            if (currentColor !== updatedColor) {
+                document.body.style.backgroundColor = updatedColor;
+                console.log(`color change ${updatedColor}`);
+            }
+        }
+    </script>
+</html>
