@@ -36,5 +36,6 @@ curl http://localhost:8080/testOne
 
 ## quick refs and resources
 
+- initial implementation credit to Robert Finn: <https://rjlfinn.medium.com/creating-a-http-server-in-java-9b6af7f9b3cd>
 - <https://www.freecodecamp.org/news/basic-html5-template-boilerplate-code-example/>
 - <https://www.digitalocean.com/community/tutorials/java-read-file-line-by-line>
