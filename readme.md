@@ -1,6 +1,6 @@
 # context
 
-- 2023-08-21
+- 2023-08-22
 - this is a small-scale Java web server built for the fun of seeing if I could do it.
 - currently, this minimal web server lacks many common web server features, such as caching, security, SSL, etc. These are all todos.
 
@@ -13,6 +13,12 @@
 
 cd /Users/micahnorwoodjordan/code/studying/java/web-server;
 /usr/bin/env /opt/homebrew/Cellar/openjdk/20.0.1/libexec/openjdk.jdk/Contents/Home/bin/java --enable-preview -XX:+ShowCodeDetailsInExceptionMessages -cp /Users/micahnorwoodjordan/Library/Application\ Support/Code/User/workspaceStorage/2dcab1d7a6bc2def3c6ad2c21b5db376/redhat.java/jdt_ws/web-server_5e795fd0/bin src.App
+~~~
+
+## hit the web server
+
+~~~bash
+curl http://localhost:8080/testOne
 ~~~
 
 ## TODO
